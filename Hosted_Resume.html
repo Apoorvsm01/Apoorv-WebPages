@@ -31,6 +31,14 @@
 			color: #fff;
 		}
 
+		.header-actions {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 0.65rem;
+			flex-wrap: wrap;
+		}
+
 		h1 {
 			margin: 0;
 			font-size: 1.1rem;
@@ -45,6 +53,25 @@
 			font-size: 0.9rem;
 			font-weight: 650;
 			text-decoration: none;
+		}
+
+		.portfolio {
+			padding: 0.65rem 1rem;
+			border: 1px solid rgb(255 255 255 / 35%);
+			border-radius: 999px;
+			background: linear-gradient(135deg, #f5d58a, #d89b38);
+			color: #17212b;
+			font-size: 0.9rem;
+			font-weight: 750;
+			text-decoration: none;
+			box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 18%);
+			transition: transform 160ms ease, box-shadow 160ms ease;
+		}
+
+		.portfolio:hover,
+		.portfolio:focus-visible {
+			transform: translateY(-2px);
+			box-shadow: 0 0.55rem 1rem rgb(0 0 0 / 24%);
 		}
 
 		main {
@@ -62,6 +89,45 @@
 			box-shadow: 0 0.5rem 1.5rem rgb(23 33 43 / 12%);
 		}
 
+		.more-projects {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin: 1.25rem auto 0;
+			padding: 0.75rem 1.1rem;
+			border: 1px solid #c6d0d9;
+			border-radius: 999px;
+			background: #fff;
+			color: #17212b;
+			font-weight: 700;
+			text-decoration: none;
+			transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+		}
+
+		.more-projects:hover,
+		.more-projects:focus-visible {
+			border-color: #17212b;
+			background: #f4f7f9;
+			transform: translateY(-2px);
+		}
+
+		.actions {
+			display: flex;
+			justify-content: center;
+		}
+
+		@media (max-width: 560px) {
+			header {
+				align-items: flex-start;
+				flex-direction: column;
+			}
+
+			.header-actions {
+				width: 100%;
+				justify-content: flex-start;
+			}
+		}
+
 		.fallback {
 			margin: auto;
 			padding: 2rem;
@@ -74,15 +140,23 @@
 <body>
 	<header>
 		<h1>Resume</h1>
-		<a class="download" href="resume.pdf" download>Download PDF</a>
+		<div class="header-actions">
+			<a class="portfolio" href="https://apoorvmahajan.framer.website" target="_blank" rel="noopener noreferrer">View Portfolio</a>
+			<a class="download" href="resume.pdf" download>Download PDF</a>
+		</div>
 	</header>
 	<main>
-		<iframe src="resume.pdf" title="Resume PDF">
-			<div class="fallback">
-				<p>Your browser cannot display the PDF inline.</p>
-				<a href="resume.pdf">Open the resume PDF</a>
+		<div style="width: 100%;">
+			<iframe src="resume.pdf" title="Resume PDF">
+				<div class="fallback">
+					<p>Your browser cannot display the PDF inline.</p>
+					<a href="resume.pdf">Open the resume PDF</a>
+				</div>
+			</iframe>
+			<div class="actions">
+				<a class="more-projects" href="projects.html">More Projects</a>
 			</div>
-		</iframe>
+		</div>
 	</main>
 </body>
 </html>
